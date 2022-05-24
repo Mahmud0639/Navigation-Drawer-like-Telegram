@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/home_nav"
+            android:title="Home"
+            android:icon="@drawable/ic_home"/>
+        <item android:id="@+id/refresh_nav"
+            android:title="Refresh"
+            android:icon="@drawable/ic_refresh"/>
+        <item android:id="@+id/replay"
+            android:title="Share"
+            android:icon="@drawable/ic_reply"/>
+        <item android:id="@+id/rate"
+            android:title="Rate us"
+            android:icon="@drawable/ic_rate"/>
+
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Profile">
+            <menu>
+                <item android:id="@+id/Login_nav"
+                    android:title="Login"
+                    android:icon="@drawable/ic_login"/>
+                <item android:id="@+id/profile"
+                    android:title="Update profile"
+                    android:icon="@drawable/ic_person"/>
+                <item android:id="@+id/logout"
+                    android:title="Logout"
+                    android:icon="@drawable/ic_logout"/>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Following">
+            <menu>
+                <item android:id="@+id/follow_nav"
+                    android:title="Follow Me"
+                    android:icon="@drawable/ic_follow"/>
+                <item android:id="@+id/developer_nav"
+                    android:title="Developer"
+                    android:icon="@drawable/ic_developer"/>
+            </menu>
+        </item>
+
+
+    </group>
+
+</menu>

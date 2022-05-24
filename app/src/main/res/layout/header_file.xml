@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:id="@+id/header_file_my"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/background_color"
+    android:orientation="vertical"
+    tools:ignore="UseSwitchCompatOrMaterialXml">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:src="@drawable/mypicn"
+        android:id="@+id/myPic"
+        app:civ_border_width="2dp"
+        android:layout_marginStart="10dp"
+        app:civ_border_color="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+    <TextView
+        android:id="@+id/myName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mahmud Islam"
+        app:layout_constraintTop_toBottomOf="@id/myPic"
+        app:layout_constraintStart_toStartOf="@id/myPic"
+        android:textSize="16sp"
+        android:textColor="?attr/text_color"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android Developer"
+        android:textColor="?attr/text_color"
+        app:layout_constraintTop_toBottomOf="@id/myName"
+        app:layout_constraintStart_toStartOf="@id/myName"/>
+    <Switch
+        android:id="@+id/theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/myPic"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/switch_track"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
