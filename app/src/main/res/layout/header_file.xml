@@ -2,55 +2,160 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="match_parent"
     android:id="@+id/header_file_my"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?attr/background_color"
+
     android:orientation="vertical"
     tools:ignore="UseSwitchCompatOrMaterialXml">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:src="@drawable/mypicn"
-        android:id="@+id/myPic"
-        app:civ_border_width="2dp"
-        android:layout_marginStart="10dp"
-        app:civ_border_color="#3F51B5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
-    <TextView
-        android:id="@+id/myName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mahmud Islam"
-        app:layout_constraintTop_toBottomOf="@id/myPic"
-        app:layout_constraintStart_toStartOf="@id/myPic"
-        android:textSize="16sp"
-        android:textColor="?attr/text_color"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Android Developer"
-        android:textColor="?attr/text_color"
-        app:layout_constraintTop_toBottomOf="@id/myName"
-        app:layout_constraintStart_toStartOf="@id/myName"/>
-    <Switch
-        android:id="@+id/theme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/myPic"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cons2"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="?attr/background_color"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10dp"
-        android:thumb="@drawable/thumb"
-        android:track="@drawable/switch_track"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/myPic"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/mypicn"
+            app:civ_border_color="#3F51B5"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.32" />
+
+        <TextView
+            android:id="@+id/myName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Mahmud Islam"
+            android:textColor="?attr/text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myPic"
+            app:layout_constraintTop_toBottomOf="@id/myPic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Android Developer"
+            android:textColor="?attr/text_color"
+            app:layout_constraintStart_toStartOf="@id/myName"
+            app:layout_constraintTop_toBottomOf="@id/myName" />
+        <!-- <Switch
+             android:id="@+id/theme"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintTop_toTopOf="@id/myPic"
+             app:layout_constraintEnd_toEndOf="parent"
+             android:layout_marginEnd="10dp"
+             android:thumb="@drawable/thumb"
+             android:track="@drawable/switch_track"
+             android:layout_marginTop="10dp"/>
+     -->
+        <ToggleButton
+            android:id="@+id/themeChange"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/theme_bg"
+            android:button="@null"
+            android:textOff="@null"
+            android:textOn="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/myPic" />
+
+        <ToggleButton
+            android:id="@+id/arrowToggle"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/arrow_toggle_bg"
+            android:button="@null"
+            android:textOff="@null"
+            android:textOn="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/themeChange"
+            app:layout_constraintStart_toStartOf="@id/themeChange"
+            app:layout_constraintTop_toBottomOf="@id/themeChange"
+            app:layout_constraintVertical_bias="0.75" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <LinearLayout
+        android:id="@+id/showOrNot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons2">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mypicn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Mahmud Islam"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_add_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Add Account"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="20dp"
+            android:background="#AAA6A6" />
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

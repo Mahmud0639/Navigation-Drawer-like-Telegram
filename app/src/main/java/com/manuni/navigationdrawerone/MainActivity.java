@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle toggle;
     private View header;
     private ImageView myImage;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,19 +58,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toolbar = findViewById(R.id.toolbarId);
+
         drawerLayout = findViewById(R.id.drawerLayoutId);
         navigationView = findViewById(R.id.navigationView);
-        getSupportActionBar().setTitle("Drawer Layout");
+        //getSupportActionBar().setTitle("Drawer Layout");
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0));
        // navigationView.bringToFront();
         //navigationView.setItemBackground(getDrawable(R.drawable.switch_track_on));
 
-        toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
+        //toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
+        toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close);
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -88,7 +93,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                openGallery();
             }
         });
-       Switch aSwitch = header.findViewById(R.id.theme);
+
+        ToggleButton myToggle = header.findViewById(R.id.themeChange);
+        myToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (myToggle.isChecked()){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }else {
+
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
+        ToggleButton arrowToggle = header.findViewById(R.id.arrowToggle);
+        arrowToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (arrowToggle.isChecked()){
+                    header.findViewById(R.id.showOrNot).setVisibility(View.GONE);
+                }else {
+                    header.findViewById(R.id.showOrNot).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+      /* Switch aSwitch = header.findViewById(R.id.theme);
        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
            @Override
            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -99,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                }
 
            }
-       });
+       });*/
 
 
        /* CircleImageView imageView = (CircleImageView) findViewById(R.id.myPic);

@@ -5,9 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:openDrawer="start"
-    android:background="?attr/background_color"
     android:id="@+id/drawerLayoutId"
     tools:context=".MainActivity">
+
+    <include layout="@layout/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
     <com.google.android.material.navigation.NavigationView
